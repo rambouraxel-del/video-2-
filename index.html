@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Points de Chute</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #05060d; --fg: #c8d2ff; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); overflow: hidden;
+    font-family: "VT323", "Courier New", monospace; touch-action: none; -webkit-user-select: none; user-select: none; }
+  #wrap { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  canvas { width: min(100vw, calc(100vh * 960 / 528)); height: auto; aspect-ratio: 960 / 528;
+    image-rendering: auto; box-shadow: 0 0 60px rgba(80,100,255,0.15); border-radius: 6px; }
+  .tc { display: none; position: fixed; z-index: 5; border: 2px solid rgba(200,210,255,0.35); color: rgba(220,230,255,0.85);
+    background: rgba(20,24,48,0.55); border-radius: 50%; width: 68px; height: 68px; font-size: 30px;
+    align-items: center; justify-content: center; }
+  .tc.on { background: rgba(120,140,255,0.45); }
+  body.touch .tc { display: flex; }
+  #t-left { left: 16px; bottom: 18px; } #t-right { left: 96px; bottom: 18px; }
+  #t-jump { right: 16px; bottom: 18px; width: 84px; height: 84px; }
+  #t-pause { right: 16px; top: 14px; width: 54px; height: 54px; font-size: 22px; }
+  #t-die { right: 80px; top: 14px; width: 54px; height: 54px; font-size: 22px; }
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="game" aria-label="Points de Chute"></canvas></div>
+<div class="tc" id="t-left">◀</div><div class="tc" id="t-right">▶</div>
+<div class="tc" id="t-jump">▲</div><div class="tc" id="t-pause">P</div><div class="tc" id="t-die">R</div>
+<script src="core.js"></script>
+<script src="levels.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
